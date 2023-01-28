@@ -73,7 +73,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <img :src="`{{  prodictDetail.product_image }}`" class="img-fluid" />
+                <img :src="`${productImage[0]}`" class="img-fluid" />
             </div>
         </div>
         </div>
@@ -109,14 +109,14 @@
                 return this.$currencyFormat(value);
             },
             async getProductDetail(){
-                let productDetail = await this.$api("https://1168783f-6ec2-4497-a0de-75c47cc93718.mock.pstmn.io/api/productDetail", "get", {param:[this.productId]});
+                let productDetail = await this.$get("https://1168783f-6ec2-4497-a0de-75c47cc93718.mock.pstmn.io/api/productDetail", {params:{productId: this.productId}});
                 if (productDetail.length > 0) {
                     this.productDetail = productDetail[0];
                 }
                 console.log(this.productDetail);
             },
             async getProductImage() {
-                this.productImage = await this.$api("https://1168783f-6ec2-4497-a0de-75c47cc93718.mock.pstmn.io/api/productMainImages", "get", {param:[this.productId]});
+                this.productImage = await this.$get("https://1168783f-6ec2-4497-a0de-75c47cc93718.mock.pstmn.io/api/productMainImages", {params:{productId: this.productId}});
                 console.log("this.productImage", this.productImage);
             }
         }

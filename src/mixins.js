@@ -2,12 +2,19 @@ import axios from 'axios';
 
 export default {
     methods: {
-        async $api(url, method, data) {
-            return (await axios({
-                method: method,
+        async $post(url, data) {
+            return (await axios.post(
                 url,
                 data
-            }).catch(e => {
+            ).catch(e => {
+                console.log(e);
+            })).data;
+        },
+        async $get(url, params) {
+            return (await axios.get(
+                url,
+                params
+            ).catch(e => {
                 console.log(e);
             })).data
         },
