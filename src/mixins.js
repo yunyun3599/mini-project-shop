@@ -18,6 +18,14 @@ export default {
                 console.log(e);
             })).data
         },
+        async $delete(url, params) {
+            return (await axios.delete(
+                url,
+                params
+            ).catch(e => {
+                console.log(e);
+            })).data
+        },
         $base64(file) {
             return new Promise(resolve => {
                 var a = new FileReader();

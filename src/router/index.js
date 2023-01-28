@@ -11,7 +11,7 @@ const routes = [
     path: '/detail',
     name: 'ProductDetail',
     component: () => import(/* webpackChunkName: "about" */ '../views/ProductDetail.vue')
-  }
+  },
   // ,
   // {
   //   path: '/create',
@@ -23,11 +23,11 @@ const routes = [
   //   name: 'ProductUpdate',
   //   component: () => import(/* webpackChunkName: "about" */ '../views/ProductUpdate.vue')
   // },
-  // {
-  //   path: '/sales',
-  //   name: 'SalesList',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/SalesList.vue')
-  // },
+  {
+    path: '/sales',
+    name: 'SalesList',
+    component: () => import(/* webpackChunkName: "about" */ '../views/SalesList.vue')
+  }//,
   // {
   //   path: '/image_insert',
   //   name: 'ImageInsert',
